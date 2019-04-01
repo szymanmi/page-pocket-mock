@@ -1,25 +1,38 @@
 # page-pocket-mock
 
-# Prerequisities
+## Getting started
 
-* Python 3.7.3
+Project requires python 3.7.3
 
-* Flask 1.0.2
+# Setting up
 
-### Installing
+1. Clone the repository:
 
-Download Python from ```python.org/downloads/```
-or ```sudo apt-get install python3.7```
+```$ git clone https://github.com/szymanmi/page-pocket-mock.git```
 
-If pip not installed download ```bootstrap.pypa.io/get-pip.py``` and run in with python ```python get-pip.py```
+2. Enter the project directory:
 
-Install flask ```pip install flask```
+```$ cd page-pocket-mock```
 
-# Downloading project
+3. Create virtual env:
 
-```git clone https://github.com/szymanmi/page-pocket-mock.git```
+```$ python3 -m venv env```
 
-To test application run app.py ```python app.py```
+4. Activate the env:
 
-and type ```http://127.0.0.1:8013/api/test``` in web browser,
-you should get ```Hello world``` message
+```$ source env/bin/activate```
+
+5. Install dependecies:
+
+```$ pip install -r requirements.txt```
+
+# Running the app
+
+```$ python3 app.py```
+
+To test go to  ```http://127.0.0.1:8013/api/test```, you should get ```Hello world``` message.
+
+# Finish
+When you have finished working with the app, deactivate the virtual environment:
+
+```$ deactivate```
