@@ -28,7 +28,7 @@ def getalltag():
 	return json.dumps(data.tag)
 
 
-@app.route("/api/getallwebpages")
+@app.route("/api/pockets")
 def getallwebpages():
 	return json.dumps(data.storage)
 
