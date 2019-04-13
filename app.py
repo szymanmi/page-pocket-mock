@@ -23,5 +23,10 @@ def getbytag():
 	return new_list
 
 
+@app.route("/api/getalltag")
+def getalltag():
+	return json.dumps(data.tag)
+
+
 if __name__ == '__main__':
 	app.run(port=8013)
