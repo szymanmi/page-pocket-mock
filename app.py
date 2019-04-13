@@ -28,5 +28,10 @@ def getalltag():
 	return json.dumps(data.tag)
 
 
+@app.route("/api/getallwebpages")
+def getallwebpages():
+	return json.dumps(data.storage)
+
+
 if __name__ == '__main__':
-	app.run(port=8013)
+	app.run(port=8013, debug=True)
