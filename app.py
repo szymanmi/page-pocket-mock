@@ -1,7 +1,7 @@
 import json
 import time
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 
 import data
 
@@ -55,6 +55,11 @@ def addpage():
 	resp = jsonify(success=True)
 	resp.status_code = 201
 	return resp
+
+
+@app.route("/api/pockets/<id>")
+def get_prtscr(id):
+	return send_file("prtscr.jpeg", mimetype='image/jpeg')
 
 
 def update_tags(tags_from_request):
