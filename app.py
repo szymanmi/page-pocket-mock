@@ -41,7 +41,7 @@ def addpage():
 	request_data = request.get_json()
 
 	json_dict = {}
-	json_dict['_id'] = request_data['_id']
+	json_dict['_id'] = get_available_id()
 	json_dict['description'] = request_data['description']
 	json_dict['source'] = request_data['source']
 	json_dict['tags'] = request_data['tags']
@@ -50,9 +50,14 @@ def addpage():
 
 	data.storage.append(json_dict)
 
+	print(data.storage)
 	resp = jsonify(success=True)
 	resp.status_code = 201
 	return resp
+
+
+def get_available_id():
+	return data.storage[-1]['_id'] + 1
 
 
 if __name__ == '__main__':
