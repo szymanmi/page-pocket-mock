@@ -41,7 +41,7 @@ def addpage():
 	request_data = request.get_json()
 
 	json_dict = {}
-	json_dict['_id'] = get_available_id()
+	json_dict['_id'] = get_available_id(data.storage)
 	json_dict['description'] = request_data['description']
 	json_dict['source'] = request_data['source']
 	json_dict['tags'] = request_data['tags']
@@ -49,15 +49,29 @@ def addpage():
 	json_dict['createdDate'] = int(time.time())
 
 	data.storage.append(json_dict)
+	update_tags(request_data['tags'])
 
-	print(data.storage)
+	print(data.tag)
 	resp = jsonify(success=True)
 	resp.status_code = 201
 	return resp
 
 
-def get_available_id():
-	return data.storage[-1]['_id'] + 1
+def update_tags(tags_from_request):
+	for tag in tags_from_request:
+		existing = False
+		for i in range(len(data.tag)):
+			if tag in data.tag[i].values():
+				data.tag[i]["tag_size"] += 1
+				existing = True
+				continue
+		if not existing:
+			new_tag = {'_id': get_available_id(data.tag), 'name': tag, 'tag_size': 1}
+			data.tag.append(new_tag)
+
+
+def get_available_id(list):
+	return list[-1]['_id'] + 1
 
 
 if __name__ == '__main__':
