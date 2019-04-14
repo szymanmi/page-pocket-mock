@@ -36,7 +36,7 @@ To test if the page was added:
 
 ```
 $ curl -X POST \
-  http://127.0.0.1:8013/api/addpage \
+  http://127.0.0.1:8013/api/pockets \
   -H 'Content-Type: application/json' \
   -H 'Postman-Token: 3b32f3ef-f77d-4098-8b82-5f0cd0372180' \
   -H 'cache-control: no-cache' \
