@@ -40,12 +40,11 @@ $ curl -X POST \
   -H 'Content-Type: application/json' \
   -H 'Postman-Token: 3b32f3ef-f77d-4098-8b82-5f0cd0372180' \
   -H 'cache-control: no-cache' \
-  -d '{"_id": 534,
+  -d '{
 	 "description": "desc4",
 	 "source": "www.reddit.com",
 	 "tags": ["info", "fun"],
-	 "link": "https://www.reddit.com",
-	 "createdDate": "01-01-2018"
+	 "link": "https://www.reddit.com"
 }'
 ```
 
@@ -53,3 +52,11 @@ $ curl -X POST \
 When you have finished working with the app, deactivate the virtual environment:
 
 ```$ deactivate```
+
+## Requests
+|                         | GET                                                                                                                                                       | POST                                                                                                      |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| `/api/pockets`          | [ {"_id": 531, "description": "desc1", "source": "www.interia.pl", "tags": ["info"], "link": "https://www.interia.pl", "createdDate": "1555234406"} ... ] | {"description": "desc10", "source": "www.reddit.com", "tags": ["info"], "link": "https://www.reddit.com" } |
+| `/api/pockets/<id>`      | prtscr.jpeg                                                                                                                                               | -                                                                                                         |
+| `/api/tags`             | [ {"_id": 123, "name": "info", "tag_size": 2} ... ]                                                                                                       | -                                                                                                         |
+| `/api/tags/name/<name>` | [ {"_id": 531, "description": "desc1", "source": "www.interia.pl", "tags": ["info"], "link": "https://www.interia.pl", "createdDate": "1555234406"} ... ] | -                                                                                                         |
