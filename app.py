@@ -45,7 +45,12 @@ def getalltag():
 
 @app.route("/api/pockets", methods=['GET'])
 def getallwebpages():
-	return json.dumps(data.storage)
+	response = app.response_class(
+		response=json.dumps(data.storage),
+		status=200,
+		mimetype='application/json'
+	)
+	return response
 
 
 @app.route("/api/pockets", methods=['POST'])
@@ -66,7 +71,7 @@ def addpage():
 
 	# print(data.tag)
 	resp = jsonify(success=True)
-	resp.status_code = 201
+	resp.status_code = 200
 	return resp
 
 
