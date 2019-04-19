@@ -42,16 +42,17 @@ def addpage():
 
 	json_dict = {}
 	json_dict['_id'] = get_available_id(data.storage)
+	json_dict['title'] = request_data['title']
 	json_dict['description'] = request_data['description']
 	json_dict['source'] = request_data['source']
 	json_dict['tags'] = request_data['tags']
-	json_dict['link'] = request_data['link']
+	# json_dict['link'] = request_data['link']
 	json_dict['createdDate'] = int(time.time())
 
 	data.storage.append(json_dict)
-	update_tags(request_data['tags'])
+	# update_tags(request_data['tags'])
 
-	print(data.tag)
+	# print(data.tag)
 	resp = jsonify(success=True)
 	resp.status_code = 201
 	return resp
