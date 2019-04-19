@@ -15,10 +15,10 @@ def hello():
 
 @app.route("/api/users/register", methods=['POST'])
 def register():
-	resp = {"SESSIONID": "123"}
+	resp = "1234"
 
 	response = app.response_class(
-		response=json.dumps(resp),
+		response=resp,
 		status=201,
 		mimetype='application/json'
 	)
