@@ -13,6 +13,18 @@ def hello():
 	return "Hello World!"
 
 
+@app.route("/api/users/register", methods=['POST'])
+def register():
+	resp = {"SESSIONID": "123"}
+
+	response = app.response_class(
+		response=json.dumps(resp),
+		status=201,
+		mimetype='application/json'
+	)
+	return response
+
+
 # example: http://127.0.0.1:8013/api/tags/name/info
 @app.route("/api/tags/name/<name>")
 def getbytag(name):
