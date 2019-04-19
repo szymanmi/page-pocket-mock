@@ -46,7 +46,7 @@ def addpage():
 	json_dict['description'] = request_data['description']
 	json_dict['source'] = request_data['source']
 	json_dict['tags'] = request_data['tags']
-	# json_dict['link'] = request_data['link']
+	json_dict['link'] = request_data['link']
 	json_dict['createdDate'] = int(time.time())
 
 	data.storage.append(json_dict)

@@ -9,7 +9,7 @@ storage = [
 	 "description": "Strona dziennikarska",
 	 "source": "www.interia.pl",
 	 "tags": ["info"],
-	 # "link": "https://www.interia.pl",
+	 "link": "https://www.interia.pl",
 	 "createdDate": "1555234406"},
 
 	{"_id": 532,
@@ -17,7 +17,7 @@ storage = [
 	 "description": "Strona dziennikarska",
 	 "source": "www.sport.pl",
 	 "tags": ["info", "sport"],
-	 # "link": "https://www.sport.pl",
+	 "link": "https://www.sport.pl",
 	 "createdDate": "1555234406"},
 
 	{"_id": 533,
@@ -25,6 +25,6 @@ storage = [
 	 "description": "Portal spolecznosciowy",
 	 "source": "www.facebook.com",
 	 "tags": ["fun"],
-	 # "link": "https://www.facebook.com",
+	 "link": "https://www.facebook.com",
 	 "createdDate": "1555234406"},
 ]
