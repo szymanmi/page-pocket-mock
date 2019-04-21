@@ -12,9 +12,11 @@ user_session_id = None
 email = "test@wp.pl"
 password = "pass"
 
+
 def is_authorized():
 	global user_session_id
 	return user_session_id is not None
+
 
 @app.errorhandler(401)
 def unauthorized(error):
@@ -22,11 +24,13 @@ def unauthorized(error):
 	response.status_code = 401
 	return response
 
+
 @app.errorhandler(404)
 def not_found(error):
 	response = jsonify({'code': 404, 'message': error.description})
 	response.status_code = 404
 	return response
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 # UsersAPI
@@ -48,6 +52,7 @@ def register_user():
 	)
 	return response
 
+
 @app.route("/api/users/login", methods=['POST'])
 def login_user():
 	global user_session_id
@@ -66,6 +71,7 @@ def login_user():
 	)
 	return response
 
+
 @app.route("/api/users/logout", methods=['POST'])
 def logout_user():
 	global user_session_id
@@ -74,6 +80,7 @@ def logout_user():
 		status=200
 	)
 	return response
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 # PocketsAPI
@@ -102,6 +109,7 @@ def save_pocket():
 	)
 	return response
 
+
 @app.route("/api/pockets", methods=['GET'])
 def find_pockets():
 	if is_authorized() is False:
@@ -120,6 +128,7 @@ def find_pockets():
 	)
 	return response
 
+
 @app.route("/api/pockets/<id>", methods=['GET'])
 def find_pocket_blob_by_id(id):
 	if is_authorized() is False:
@@ -137,6 +146,7 @@ def find_pocket_blob_by_id(id):
 	else:
 		return send_file("prtscr.jpeg", mimetype='image/jpeg')
 
+
 @app.route("/api/pockets/<id>", methods=['DELETE'])
 def delete_pocket_by_id(id):
 	if is_authorized() is False:
@@ -150,7 +160,8 @@ def delete_pocket_by_id(id):
 			break
 
 	if bookmark_exist is False:
-		abort(404)
+		abort(404, 'Resource with id=%s not found'.format(id))
+
 	else:
 		return app.response_class(
 			status=204,
