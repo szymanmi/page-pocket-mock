@@ -138,7 +138,6 @@ def find_pocket_blob_by_id(id):
 	for item in data.storage:
 		if item['id'] == int(id):
 			bookmark_exist = True
-			data.storage.remove(item)
 			break
 
 	if bookmark_exist is False:
